@@ -1,0 +1,75 @@
+@startuml
+
+entity users {
+  *id: serial <<PK>>
+  --
+  username: varchar(100) <<unique>>
+  email: varchar(50) <<unique>>
+  password_hash: varchar(255)
+  role: enum('admin', 'user')
+
+  updated_at: datetime
+  created_at: datetime
+
+  status: enum('online', 'offline', 'away')
+  last_activity: datetime
+}
+
+entity messages {
+  *id: serial <<PK>>
+  --
+  content: text
+  is_deleted: boolean
+
+  sender_id: int <<FK>>
+  receiver_id: int <<nullable>> <<FK>>
+  group_id: int <<nullable>> <<FK>>
+
+  updated_at: datetime
+  created_at: datetime
+}
+
+entity groups {
+  *id: int <<PK>>
+  --
+  name: varchar(255)
+  admin_id: int <<FK>> <<nullable>>
+
+  updated_at: datetime
+  created_at: datetime
+}
+
+entity group_members {
+  *group_id: int <<PK>> <<FK>>
+  *user_id: int <<PK>> <<FK>>
+  --
+  created_at: datetime
+}
+
+entity contacts {
+  *id: serial <<PK>>
+  --
+  user_id: int <<FK>>
+  contact_id: int <<FK>>
+  created_at: datetime
+}
+
+entity notifications {
+    *id: serial <<PK>>
+    --
+    user_id int <<FK>>,
+    content varchar(250),
+    created_at: datetime
+}
+
+entity blacklist {
+  *user_id: int <<PK>> <<FK>>
+  *banned_user_id: int <<PK>> <<FK>>
+  --
+  reason: text
+  banned_by: int <<FK>>
+  created_at: datetime
+}
+
+notifications }|-- users
+@enduml
