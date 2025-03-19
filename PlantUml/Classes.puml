@@ -1,0 +1,133 @@
+@startuml
+package "Controllers" #0080ff {
+    class HomeController{
+    }
+
+    class UserController {
+        userService: UserService
+        + List()
+        + GetUser()
+        + Lock()
+        + Update()
+        + Delete()
+    }
+
+    class AccountController {
+        +Login()
+        +Register()
+        +Logout()
+        +ResetPassword()
+    }
+
+    class ProfileController {
+        + Get()
+        + UpdateProfile()
+    }
+
+    class MessageController {
+        + SendMessage()
+        + Delete()
+        + Update()
+    }
+
+    class GroupController {
+        + List()
+        + GetGroup()
+        + AddMember()
+        + RemoveMember()
+        + ChangeAdmin()
+        + Create()
+        + Update()
+        + Delete()
+    }
+
+    class ContactController {
+        + List()
+        + GetContact()
+        + Add()
+        + Remove()
+    }
+
+    class NotificationController {
+        + List()
+        + Create()
+        + Delete()
+    }
+}
+
+package "Services" #7f00ff {
+    class UserService {
+        + signInManager
+        + GetAll()
+        + GetById(int id)
+        + Remove(int id)
+        + Update(UserModel model)
+        + Lock(int id)
+    }
+
+    class GroupService {
+        ...
+    }
+
+    class StatusService{
+        ...
+    }
+
+    class MessageService{
+        ...
+    }
+
+    class GroupTypeService{
+        ...
+    }
+
+    class NotificationService{
+        ...
+    }
+}
+
+package "Models" #B4A7E5 {
+    class UserModel {
+        ...
+    }
+
+    class GroupModel {
+        ...
+    }
+
+    class StatusModel{
+        ...
+    }
+
+    class MessageModel{
+        ...
+    }
+
+    class GroupTypeModel{
+        ...
+    }
+
+    class NotificationModel{
+        ...
+    }
+
+    class BanModel {
+        ...
+    }
+}
+
+package "DataAccess" #00fe81 {
+    package "Repositories" #1de81c   {
+        class MessageRepository{
+            ...
+        }
+    }
+
+    package "Entities" #1de81c {
+        class MessageEntity {
+            ...
+        }
+    }
+}
+
+@enduml

@@ -1,7 +1,7 @@
 @startuml
 
 package "ASPNET IDENTITY" #B4A7E5 {
-    entity aspnet_roles {
+    entity aspnet_roles  {
         *id: int <<PK>>
         --
         name: varchar(20)
@@ -107,9 +107,7 @@ aspnet_user_roles }|-- users
 notifications }|-- users
 group_members }|-- users
 contacts }|-- users
-contacts }|-- users
 messages }|-- users
-bans }|-- users
 bans }|-- users
 users }|-- status
 group_members }|-- groups
