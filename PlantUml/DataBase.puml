@@ -59,7 +59,6 @@ entity groups {
     name: varchar(255)
     description: varchar(200)
     admin_user_id: int <<FK>> <<nullable>>
-    group_type_id: int <<FK>>
     is_group: boolean
     updated_at: datetime
     created_at: datetime

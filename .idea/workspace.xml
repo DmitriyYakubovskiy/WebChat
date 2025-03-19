@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fbca711-2077-4639-973d-5b93e8554bee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlantUml/DataBase.puml" beforeDir="false" afterPath="$PROJECT_DIR$/PlantUml/DataBase.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
